@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Braces</title>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script type="text/javascript" >
+  		$(function() {
+  			var a = ["()"];
+  			a.push("(())");
+  			a.push("())("); // does not match
+  			a.push("(({}}{))");  // does not match 
+  			a.push("(({}{})())");  // match
+  			a.push("[[](({}{}[])())]");  // match
+  			a.forEach(function(elem, index) {
+  	  			if(braces(elem)) console.log(index + "-th test " + elem + " : matches");
+  				else console.log(index + "-th test " + elem + " : does not matches");		
+  			});
+
+
+  		});
+
+  		function braces(str) {
+  			if(str.length == 0) return false; // if there is no character inside, return false
+  			var cntS = 0, cntM = 0, cntL = 0;
+  			for(var i = 0; i < str.length; i++) {
+  				var c = str.charAt(i);
+  				if(c == '(') cntS++;
+  				if(c == ')') cntS--;
+  				if(c == '{') cntM++;
+  				if(c == '}') cntM--;
+  				if(c == '[') cntL++;
+  				if(c == ']') cntL--; 
+  				// if stack dries during checking, it means closing braces came first
+  				if(cntS < 0 || cntM < 0 || cntL < 0) return false; 				
+  			}
+  			if(cntS == 0 && cntM == 0 && cntL == 0) return true;
+  			else return false;
+  		}
+  	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Braces</title>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script type="text/javascript" >
+  		$(function() {
+        var arr = [-90, -19, 0, 2, 12, 29, 33];
+        console.log(rBS(arr, 0, 6, 5));
+        console.log(rBS(arr, 0, 6, 12));
+        console.log(rBS(arr, 0, 6, -90));
+        console.log(rBS(arr, 0, 6, 33));
+        console.log(rBS([], 0, 6, 33));
+        function rBS(arr, left, right, value) {
+//          console.log('arr left right value', arr, left, right, value);
+          if(left+1 >= right) {
+            if(arr[left] == value) return true;
+            if(arr[right] == value) return true;
+            else return false;
+          }
+
+          var mid = Math.floor((left + right) / 2);
+//          console.log('mid = ', mid);
+          if(arr[mid] == value) return true;
+          else if(arr[mid] > value) return rBS(arr, left, mid, value);
+          else return rBS(arr, mid, right, value);
+        }
+      });
+  	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anagram Generator Recursive</title>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script type="text/javascript" >
+		function anagram(substr) {
+			return (function _anagram(str, substr, res) {
+				if(substr.length == 0) {
+					res.push(str);
+				} else {
+					for(var i = 0; i < substr.length; i++) {
+						var s = substr.substring(0, i) + substr.substring(i+1);
+						_anagram(str+substr.charAt(i), s, res);
+					}
+				}
+				return res;
+			})("", substr, []);
+		}
+		console.log(anagram("abc"));
+  	</script>
+</head>
+<body>
+
+</body>
+</html>
+

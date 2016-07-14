@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binary String</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" > 
+      $(function() {
+
+        var test = [];
+
+        test.push("0?0?");
+        test.push("1?00?101");
+        test.push("1?0????101");
+        test.push("???");
+        test.forEach(function(elem, index) {
+          res = binaryPermute(elem);
+          res.forEach(function(e, i) {
+            console.log(e);
+          });
+          console.log("---------------------------------------------------");
+        });
+
+        // return array of permuted string
+        function binaryPermute(s) {
+          var res = [];
+          _binaryPermute("", s, res);
+          return res;      
+        }
+
+        function _binaryPermute(str, substr, res)
+        {
+          if(substr.length == 0) {
+            res.push(str);
+            return;
+          }
+
+          if(substr[0] == '?') {
+            _binaryPermute(str + '0', substr.substr(1), res);
+            _binaryPermute(str + '1', substr.substr(1), res);
+          } else {
+            _binaryPermute(str + substr[0], substr.substr(1), res);
+          }
+        }
+           
+      });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+

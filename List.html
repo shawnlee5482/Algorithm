@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="./List.js"></script>
+    <script type="text/javascript" > 
+      $(function() {
+        var node1 = new Node(1);
+        var list1 = new LinkedList();
+        list1.appendNode(node1);
+        var node2 = new Node(2);
+        list1.appendNode(node2);
+        var node3 = new Node(3);
+        list1.appendNode(node3);
+        console.log(list1);
+        console.log(list1.getAt(2));
+        console.log((node2.getNextNode()).getNodeValue());
+
+        list1.getAt(2);
+        list1.removeNodesAt([0])
+        console.log(list1);
+      });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+

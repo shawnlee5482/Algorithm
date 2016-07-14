@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" > 
+      $(function() {
+        for(var i = 0; i < 10; i++) {
+          (function(i) {
+            var j = i;
+            myfunc(function() {
+            console.log(j);
+            });
+          })(i);
+        }
+        function myfunc(callback) {
+          setTimeout(callback
+          ,1000);          
+        }
+      });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+

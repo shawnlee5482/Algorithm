@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="./SingleLinkedList.js"></script>
+    <script type="text/javascript" > 
+      $(function() {
+        var node1 = new Node('a');
+        var list1 = new SingleLinkedList();
+        list1.appendNode(node1);
+        var node2 = new Node('b');
+        list1.appendNode(node2);
+
+        var node22 = new Node('c');
+        list1.appendNode(node22);
+
+        var node222 = new Node('c');
+        list1.appendNode(node222);
+
+        var node3 = new Node('b');
+        list1.appendNode(node3);
+        var node4 = new Node('a');
+        list1.appendNode(node4);
+
+        console.log(ListPalindrome(list1));
+
+        function ListPalindrome(list) {
+            var curr = list.getHead();
+            var n = 0;
+            while(curr) {
+                n++;
+                curr = curr.getNextNode();
+            }
+            var left = 0, right = n-1;
+            while(left <= right) {
+                if(list.getAt(left).getNodeValue() != list.getAt(right).getNodeValue()) return false;
+                left = left+1
+                right = right-1;
+            }
+            return true;
+        }
+      });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

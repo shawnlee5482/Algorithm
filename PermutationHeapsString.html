@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Permutation Heaps String</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" > 
+      $(function() {
+          var permArr = [],
+            usedChars = [];
+          function swap(A, a, b) {
+             var s = A.slice();
+             var temp;
+             temp = s.slice(0, a);
+             temp += s.charAt(b);
+             temp += s.slice(a+1, b);
+             temp += s.charAt(a); 
+             temp += s.slice(b);
+             return temp;
+          }
+          var A = "abcde";
+
+          A = swap(A, 0, 1);
+          $('body').text(A);
+          // permute(A.length, A);
+
+          // function permute(n, A) {
+          //   if(n == 1) console.log(A);
+          //   else {
+          //     for(var i = 0; i < n-1; i++) {
+          //       permute(n-1, A);
+          //       if(n % 2 == 1) swap(A, 0, n-1);
+          //       else swap(A, i, n-1);
+          //     }
+          //     permute(n-1, A);
+          //   }
+          // };    
+      });
+      
+    </script>
+</head>
+<body>
+</body>
+</html>
+

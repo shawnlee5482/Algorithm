@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Braces</title>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script type="text/javascript" >
+  		$(function() {
+        console.log(Fib(5));
+        console.log(Fib(6));
+        function Fib(n) {
+          if(n <= 2) return n-1;
+          return Fib(n-1) + Fib(n-2);
+        }
+      });
+  	</script>
+</head>
+<body>
+
+</body>
+</html>

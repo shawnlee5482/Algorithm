@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binary Search Tree Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="./BinarySearchTree.js"></script>
+    <script type="text/javascript" > 
+
+      var bst = new BinarySearchTree();
+      var root = bst.getRootNode();
+
+      bst.Insert(3);
+      bst.Insert(5);
+      bst.Insert(7);      
+      bst.Insert(1);
+      bst.Insert(2);
+      bst.Insert(6);
+      bst.Insert(9);
+      console.log('root node', bst.getRootNode());
+      console.log('search result', bst.Search(bst.getRootNode(), 5));
+      console.log('minimum is ', bst.FindMinimum(bst.getRootNode()));
+      bst.BinaryTreeDelete(bst.getRootNode(), 7);
+      console.log('root node', bst.getRootNode());
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+

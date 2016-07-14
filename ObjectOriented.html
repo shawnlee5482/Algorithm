@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object Oriented Programming with Javascript</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" > 
+      $(function() {
+        function Constructor(value) {
+          this.v = value;
+        }
+        Constructor.prototype.getV = function() {return this.v;};
+        Constructor.prototype.getVsquare = function() {return this.v * this.v;};
+
+        function Derived(height) {
+          this.base = Constructor;  // how to call base class's constructor
+          this.base(height);  // calling base class's constructor
+          this.height = height;
+        }
+
+        Derived.prototype = Constructor.prototype;
+        Derived.constructor = Derived;
+
+        var a = new Derived(10);
+        console.log(a.getVsquare());
+
+      });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+

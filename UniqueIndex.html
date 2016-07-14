@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Unique</title>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script type="text/javascript" >
+  		$(function() {
+  			var a = ["assa cculummmnndd"];
+  			a.push("classic music");
+  			a.push("ssimullation");
+        a.push("");
+        a.push("aAbBcC");
+  			a.forEach(function(elem, index) {
+          var res = uniqueindex(elem);
+          if(res != -1)
+  	  		 console.log(index + "-th test \'" + elem + "\': index = " + res + ", char: " + elem.charAt(res));	
+          else 
+           console.log(index + "-th test \'" + elem + "\': " + res + ", char: ");             
+  			});
+
+
+  		});
+
+      function uniqueindex(str) {
+        if(str == null || str.length == 0) return -1;
+        for(var i = 0; i < str.length; i++) {
+          var c = str.charAt(i);
+          // count number of occurence
+          if(str.indexOf(c) == str.lastIndexOf(c)) return i;
+        }
+        return -1;
+      }
+
+  	</script>
+</head>
+<body>
+
+</body>
+</html>

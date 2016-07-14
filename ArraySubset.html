@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intersect</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" > 
+      $(function() {
+        var test =  [ 1, 2, 3, 4, 5];
+        console.log('test: ', test);
+
+        var ares = subset(test);
+
+        for(var i = 0; i < ares.length; i++) {
+          console.log(ares[i]);
+        }
+
+        function subset(arr) {
+          var size = arr.length;
+          var flags = generateFlag(size);
+          console.log('generated flags= ', flags);
+          var res = [];
+          for(var i = 0; i < flags.length; i++) {
+            var tempres = [];
+            var flag = flags[i];
+            console.log('flag = ', flag);
+            console.assert(flag.length == test.length);  // this should be same
+            for(var j = 0; j < flag.length; j++) {
+              if(flag[j] == 1) tempres.push(test[j]);
+            }
+            console.log('tempres = ', tempres);
+            res.push(tempres);
+          }
+          return res;
+        }
+
+        function generateFlag(size) {
+          var res = [];
+          for(var i = 0; i < Math.pow(2, size); i++){
+            var bitString = i.toString(2);
+            if(bitString.length < size) {
+              var padding = "";
+              for(var j = 0; j < size - bitString.length; j++) padding += '0';
+              bitString = padding + bitString;
+              console.log(bitString);
+            }
+            var a = bitString.split('');
+            for(var k = 0; k < a.length; k++) a[k] = parseInt(a[k], 2);
+            res.push(a);
+          }
+          return res;
+        }
+           
+      });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+

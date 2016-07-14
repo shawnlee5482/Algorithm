@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript" > 
+      $(function() {
+      	AllParenthesis(0, 0, 3, 3, "");
+      });
+
+      function AllParenthesis(l, r, n1, n2, res) {
+      	console.log('l:',l, 'r:',r, 'n1:', n1, 'n2:', n2, 'res:', res);
+      	if(l < r) return;
+
+      	if(n1 == 0 && n2 == 0) {
+      		console.log(res);
+      	}
+     	if(n1 > 0) {     		
+      		res += '(';
+      		l++;
+      		n1--;
+      		AllParenthesis(l, r, n1, n2, res);
+      		if(n1 == 0) return;
+      	} 
+     	if(n2 > 0) {     		
+      		res += ')';
+      		r++;
+      		n2--;
+			AllParenthesis(l, r, n1, n2, res);
+      	}
+      	
+      }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
+

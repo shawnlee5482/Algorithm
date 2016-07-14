@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Longest Common Suffix</title>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script type="text/javascript" >
+  		$(function() {
+  			console.log(lgs(["carnation", "persuasion", "satisfaction"]));
+        console.log(lgs(["subordinate", "donate", "coordinate"]));
+        console.log(lgs(["e", "donate", "coordinate"]));
+        console.log(lgs(["subordinate", "c", "k"]));
+        console.log(lgs(["subordinate", "", ""]));
+  		});
+
+  		// function lgs(strarray) {
+  		// 	if(strarray.length == 0) return null;
+    //     var n = strarray[0].length;
+    //     for(var i = 0; i < n; i++) {
+    //       if(!checkExist(strarray, i, strarray[0].charAt(n-1-i))) {
+    //         var cs = strarray[0].substring(n-i, n);
+    //         return cs;
+    //       }
+    //     }
+    //     return strarray[0];  // full string
+  		// }
+
+    //   // check if c exist in strarray at the ith position from the end
+    //   function checkExist(strarray, i, c) {
+    //     for(var j=1; j < strarray.length; j++) {
+    //       var cc = strarray[j].charAt(strarray[j].length - 1 - i);
+    //       if(cc != c) return false;
+    //     };
+    //     return true;    
+    //   }
+      function lgs(strarray) {
+        if(strarray.length == 0) return null;
+        var n = strarray[0].length;
+        for(var i = n-1; i >= 0; i--) {
+          if(!checkExist(strarray, n-1-i, strarray[0].charAt(i))) {
+            var cs = strarray[0].substr(i+1);
+            return cs;
+          }
+        }
+        return strarray[0];  // full string
+      }
+
+      // check if c exist in strarray at the ith position from the end
+      function checkExist(strarray, i, c) {
+        for(var j=1; j < strarray.length; j++) {
+          var cc = strarray[j].charAt(strarray[j].length - 1 - i);
+          if(cc != c) return false;
+        };
+        return true;    
+      }  
+  	</script>
+</head>
+<body>
+
+</body>
+</html>
